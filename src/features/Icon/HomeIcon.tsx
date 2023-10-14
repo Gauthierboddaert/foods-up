@@ -9,7 +9,7 @@ const HomeIcon = ({ className, color = "black" }: Props) => {
   return (
     <svg
       onClick={() => redirect("/")}
-      className={className}
+      className={`${className}`}
       fill={color}
       xmlns="http://www.w3.org/2000/svg"
       height="1em"

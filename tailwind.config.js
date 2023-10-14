@@ -21,7 +21,8 @@ export default {
     colors: {
       'nauticalGrey': '#2B3F4A',
       'nauticalCyan': '#1BBE9B',
-      'foods-orange': '#ff9e44',
+      'foods-orange': '#f46d12',
+      'grey-hover': '#fbfbfb',
       current: 'currentColor',
       black: '#000',
       white: '#fff',
