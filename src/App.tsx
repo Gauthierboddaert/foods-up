@@ -1,24 +1,17 @@
 import {
   createBrowserRouter,
-  Route,
-  createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import React from "react";
-import Test from "./features/recipe/components/test";
+import Layout from "./features/header/components/Layout";
+import routes from "./pages/Routes";
 
 const App = () => {
-  const route = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path="/dashboard" element={<Test />}/>
-    )
-  );
+  const route = createBrowserRouter(routes);
 
   return (
     <>
-      <React.StrictMode>
-        <RouterProvider router={route} />
-      </React.StrictMode>
+      <Layout/>
+      <RouterProvider router={route} />
     </>
   );
 };
