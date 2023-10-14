@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./features/header/components/Layout";
 import routes from "./pages/Routes";
 
@@ -10,8 +7,8 @@ const App = () => {
 
   return (
     <>
-      <Layout/>
-      <RouterProvider router={route} />
+      <Layout />
+      <RouterProvider future={{ v7_startTransition: true }} router={route} />
     </>
   );
 };
