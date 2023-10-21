@@ -1,4 +1,4 @@
-import { redirect } from "react-router-dom";
+import { Link, redirect, useLocation } from "react-router-dom";
 import AccountIcon from "../../Icon/AccountIcon";
 import FoodsUpIcon from "../../Icon/FoodsUpIcon";
 import HomeIcon from "../../Icon/HomeIcon";
@@ -6,8 +6,9 @@ import SearchIcon from "../../Icon/SearchIcon";
 import LoginIcon from "../../Icon/LoginIcon";
 
 const Layout = () => {
+  const location = useLocation();
   const isLocatedTo = (path: string): boolean => {
-    return window.location.pathname === path;
+    return location.pathname === path;
   };
 
   return (
@@ -20,7 +21,7 @@ const Layout = () => {
 
       <div
         onClick={() => redirect("/profil")}
-        className="w-full border-t-2 h-12 absolute bottom-0 flex items-center justify-around md:hidden"
+        className="bg-white w-full border-t-2 h-12 absolute bottom-0 flex items-center justify-around md:hidden"
       >
         <HomeIcon
           color={`${isLocatedTo("/") ? "#f46d12" : "black"}`}
@@ -42,45 +43,65 @@ const Layout = () => {
           <FoodsUpIcon className="w-full h-24 lg:w-52 lg:h-52" />
         </div>
         <div className="flex flex-col">
-        <div className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${isLocatedTo("/") ? 'active' : ''}`}>
-            <HomeIcon
-              color={`${isLocatedTo("/") ? "#f46d12" : "black"}`}
-              className={`text-xl cursor-pointer`}
-            />
-            <p
-              className={`max-lg:hidden ml-3 ${
-                isLocatedTo("/") ? "text-foods-orange font-bold" : "black"
+          <Link to="/">
+            <div
+              className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
+                isLocatedTo("/") ? "active" : ""
               }`}
             >
-              Accueil
-            </p>
-          </div>
-          <div className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${isLocatedTo("/") ? 'active' : ''}`}>
-            <SearchIcon
-              color={`${isLocatedTo("/search  ") ? "#f46d12" : "black"}`}
-              className=" text-xl cursor-pointer"
-            />
-            <p
-              className={`max-lg:hidden ml-3 ${
-                isLocatedTo("/search") ? "text-foods-orange" : "black"
+              <HomeIcon
+                color={`${isLocatedTo("/") ? "#f46d12" : "black"}`}
+                className={`text-xl cursor-pointer`}
+              />
+
+              <p
+                className={`max-lg:hidden ml-3 ${
+                  isLocatedTo("/") ? "text-foods-orange font-bold" : "black"
+                }`}
+              >
+                Accueil
+              </p>
+            </div>
+          </Link>
+          <Link to="/search">
+            <div
+              className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
+                isLocatedTo("/") ? "active" : ""
               }`}
             >
-              Search
-            </p>
-          </div>
-          <div className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${isLocatedTo("/") ? 'active' : ''}`}>
-            <LoginIcon
-              color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
-              className=" text-xl cursor-pointer"
-            />
-            <p
-              className={`max-lg:hidden ml-3 ${
-                isLocatedTo("/login") ? "text-foods-orange" : "black"
+              <SearchIcon
+                color={`${isLocatedTo("/search") ? "#f46d12" : "black"}`}
+                className=" text-xl cursor-pointer"
+              />
+
+              <p
+                className={`max-lg:hidden ml-3 ${
+                  isLocatedTo("/search") ? "text-foods-orange font-bold" : "black"
+                }`}
+              >
+                Search
+              </p>
+            </div>
+          </Link>
+          <Link to="/login">
+            <div
+              className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
+                isLocatedTo("/") ? "active" : ""
               }`}
             >
-              Se connecter
-            </p>
-          </div>
+              <LoginIcon
+                color={`${isLocatedTo("/login") ? "#f46d12" : "black"}`}
+                className=" text-xl cursor-pointer"
+              />
+              <p
+                className={`max-lg:hidden ml-3 ${
+                  isLocatedTo("/login") ? "text-foods-orange font-bold" : "black"
+                }`}
+              >
+                Se connecter
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </>

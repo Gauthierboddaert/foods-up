@@ -1,11 +1,8 @@
-import { RouteObject } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Profil from "../features/profil/components/Profil";
 
-const ProfilRoutes: RouteObject[] = [
-    {
-        path: '/profil',
-        element: <Profil/>
-    }
+const ProfilRoutes = [
+   <Route path="/profil" key={2} Component={Profil} />
 ]
 
 export default ProfilRoutes;
