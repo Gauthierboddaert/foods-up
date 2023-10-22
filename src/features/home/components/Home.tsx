@@ -1,25 +1,30 @@
+import CardCategoriesList from "../../category/components/CardCategoriesList";
 import CardCategoriesLoader from "../../category/components/CardCategoriesLoader";
 import useCategories from "../../category/hooks/useCategories";
 import CardBestRecipeLoading from "../../recipe/components/CardBestRecipeLoader";
 import CardRecipeLoader from "../../recipe/components/CardRecipeLoader";
 
 const Home = () => {
-
+  
   const categories = useCategories();
 
-  console.log(categories);
-
   return (
-    <div className="w-full h-screen flex">
+    <div className="w-full -screen flex">
       <div className="w-full lg:w-4/6 flex max-lg:justify-center">
         <div className="w-full mt-4">
           {0 === categories.length ? (
             <CardCategoriesLoader />
           ) : (
-            <div></div>
+            <>
+              <CardCategoriesList categories={categories} />
+            </>
           )}
-          {/* <CardCategoriesLoader /> */}
           <div className="w-full flex justify-center">
+            {0 === categories.length ? (
+              <div></div>
+            ) : (
+              <div></div>
+            )}
             <CardRecipeLoader />
           </div>
         </div>
