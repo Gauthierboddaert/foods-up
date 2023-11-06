@@ -1,24 +1,41 @@
+import { useQuery } from "react-query";
 import Category from "../type/Category";
+import CardCategoriesLoader from "./CardCategoriesLoader";
 import CardCategory from "./CardCategory";
+import getCategories from "../api/getCategories";
 
-interface CategoriesProps {
-  categories: Category[];
-}
+const CardCategoriesList = () => {
+  
+  const { isLoading, data } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
 
-const CardCategoriesList = ({ categories }: CategoriesProps) => {
   return (
     <>
-      <div className="w-full h-12 flex justify-center">
-        <div className="w-[500px] h-12 flex items-center overflow-x-scroll">
-          {categories.map((category: Category) => (
-            <CardCategory key={category.id} category={category} />
-          ))}
-        </div>
-      </div>
-      <div className="flex justify-center w-full">
-        <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
-      </div>
+      {isLoading ? (
+        <CardCategoriesLoader />
+      ) : (
+        <>
+          <div className="w-full h-12 flex justify-center">
+            <div className="w-[500px] h-12 flex items-center overflow-x-scroll">
+              {data.map((category: Category) => (
+                <CardCategory key={category.id} category={category} />
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-center w-full">
+            <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
+          </div>
+        </>
+      )}
     </>
+    /*  */
+    // return (
+    //   <>
+
+    //   </>
+    // );
   );
 };
 

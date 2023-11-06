@@ -20,4 +20,10 @@ interface Recipe {
     lipide: number
 }
 
-export default Recipe;
+export interface RecipeId {
+    id: number
+}
+
+
+
+export default Recipe ;

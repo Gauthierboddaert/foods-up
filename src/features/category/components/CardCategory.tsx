@@ -6,6 +6,7 @@ interface CategoryProps {
 }
 
 const CardCategory = ({ category }: CategoryProps) => {
+
   return (
     <div className="hover:cursor-pointer flex ml-4 rounded-lg border-[0.5px] border-[#d5d5d5]">
       <div className="w-14 h-max">
