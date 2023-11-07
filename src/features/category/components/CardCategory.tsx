@@ -12,7 +12,7 @@ const CardCategory = ({ category }: CategoryProps) => {
       <div className="w-14 h-max">
         <img className="rounded-l-lg" src={logoCategories} alt="" />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center min-w-[94px]">
         <p className="px-2 text-xs w-auto">{category.name}</p>
       </div>
     </div>

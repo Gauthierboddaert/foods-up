@@ -9,6 +9,7 @@ const CardCategoriesList = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategories,
+
   });
 
   return (

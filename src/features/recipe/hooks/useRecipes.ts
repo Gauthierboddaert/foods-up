@@ -1,13 +1,13 @@
-import { useState } from "react";
 import getRecipes from "../api/getRecipes";
+import { useQuery } from "react-query";
 
 const useRecipes = (offset: number) => {
-    const [recipes, setRecipes] = useState<[]>([]);
-    getRecipes(offset).then((recipes: []) => {
-        setRecipes(recipes)
-    });
+  const { isLoading, data } = useQuery({
+    queryKey: [`recipesId_${offset}`],
+    queryFn: () => getRecipes(offset),
+  });
 
-    return recipes;
-}
+  return { offset, isLoading, data };
+};
 
 export default useRecipes;
