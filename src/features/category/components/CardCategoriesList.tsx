@@ -18,15 +18,12 @@ const CardCategoriesList = () => {
         <CardCategoriesLoader />
       ) : (
         <>
-          <div className="w-full h-12 flex justify-center">
+          <div className="w-full h-12 flex justify-center mb-4">
             <div className="w-[500px] h-12 flex items-center overflow-x-scroll">
               {data.map((category: Category) => (
                 <CardCategory key={category.id} category={category} />
               ))}
             </div>
-          </div>
-          <div className="flex justify-center w-full">
-            <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
           </div>
         </>
       )}

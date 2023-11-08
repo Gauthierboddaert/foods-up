@@ -1,5 +1,5 @@
 import CardCategoriesList from "../../category/components/CardCategoriesList";
-import CardBestRecipeLoading from "../../recipe/components/CardBestRecipeLoader";
+import CardBestRecipe from "../../recipe/components/CardBestRecipe";
 import CardRecipeList from "../../recipe/components/CardRecipeList";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
         </div>
       </div>
       <div className="hidden lg:flex lg:justify-end lg:w-2/6">
-        <CardBestRecipeLoading />
+        <CardBestRecipe />
       </div>
     </div>
   );

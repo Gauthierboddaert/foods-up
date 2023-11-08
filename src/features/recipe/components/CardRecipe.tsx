@@ -1,24 +1,24 @@
-import moi from "../../../../public/assets/moi.jpg"
-import defaultRecipe from "../../../../public/assets/ham.jpeg"
+import moi from "../../../../public/assets/moi.jpg";
+import defaultRecipe from "../../../../public/assets/ham.jpeg";
 import { RecipeId } from "../type/Recipe";
 import HeartIcon from "../../Icon/hearIcon";
 import EyeIcon from "../../Icon/EyeIcon";
+import useRecipe from "../hooks/useRecipe";
 
 interface RecipeIdProps {
-    recipeId: RecipeId
+  recipeId: RecipeId;
 }
 
-const CardRecipe = ({recipeId}: RecipeIdProps) => {
+const CardRecipe = ({ recipeId }: RecipeIdProps) => {
+  // const { data } = useRecipe(recipeId.id);
 
-    // const { data, error } = useQuery({
-    // queryKey: [`recipe_${recipeId.id}`],
-    //     queryFn: () => () => getRecipe(recipeId.id),
-    //   });
+  // console.log(data);
 
-    console.log(recipeId)
-
-    return (
-        <div>
+  return (
+    <div>
+      <div className="flex justify-center w-full">
+        <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
+      </div>
       <div className="w-[450px] mb-2.5 max-sm:w-[375px]">
         <div className=" bg-white w-full flex items-center py-3 border-b-[1px]">
           <img
@@ -26,14 +26,10 @@ const CardRecipe = ({recipeId}: RecipeIdProps) => {
             src={moi}
             alt=""
           />
-          <p className="text-sm">
-            Gauthier Boddaert
-          </p>
+          <p className="text-sm">Gauthier Boddaert</p>
           <p className="text-xs mx-1">1h</p>
         </div>
-        <div
-          className={`img-recipe bg-transparent relative`}
-        >
+        <div className={`img-recipe bg-transparent relative`}>
           <h1
             id="show"
             className={`p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center`}
@@ -54,16 +50,16 @@ const CardRecipe = ({recipeId}: RecipeIdProps) => {
           <div className="flex flex-col px-2 pb-4">
             <p className=" font-bold text-sm">Gauthier Boddaert</p>
             <p className="font-light text-sm line-clamp-2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos tenetur maxime odio pariatur sapiente fuga ratione exercitationem qui molestias porro? Magni quo expedita possimus amet commodi accusamus cum, necessitatibus eveniet.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Dignissimos tenetur maxime odio pariatur sapiente fuga ratione
+              exercitationem qui molestias porro? Magni quo expedita possimus
+              amet commodi accusamus cum, necessitatibus eveniet.
             </p>
           </div>
         </div>
       </div>
-      <div className="flex justify-center w-full">
-        <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
-      </div>
     </div>
-    )
-}
+  );
+};
 
 export default CardRecipe;
