@@ -10,9 +10,7 @@ interface RecipeIdProps {
 }
 
 const CardRecipe = ({ recipeId }: RecipeIdProps) => {
-  // const { data } = useRecipe(recipeId.id);
-
-  // console.log(data);
+  const { data } = useRecipe(recipeId.id);
 
   return (
     <div>

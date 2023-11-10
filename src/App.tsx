@@ -5,7 +5,9 @@ import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const App = () => {
-  const client = new QueryClient()
+  const client = new QueryClient({
+    defaultOptions: { queries: { refetchOnWindowFocus: false, retry: false } },
+  });
   return (
     <>
       <QueryClientProvider client={client}>

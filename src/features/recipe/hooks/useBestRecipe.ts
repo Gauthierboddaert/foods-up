@@ -4,7 +4,7 @@ import getBestRecipe from "../api/getBestRecipe";
 const useBestRecipe = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["bestRecipe"],
-    queryFn: () => getBestRecipe,
+    queryFn: () => getBestRecipe(),
   });
 
   return { isLoading, data };

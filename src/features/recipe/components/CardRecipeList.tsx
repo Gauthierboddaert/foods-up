@@ -9,7 +9,7 @@ import Loader from "../../loader/component/Loader";
 const CardRecipeList = () => {
 
   const [offset, setOffset] = useState<number>(0);
-  const { isLoading, data } = useRecipes(offset);
+  const { isLoading, recipeIds } = useRecipes(offset);
 
   if(isLoading) {
     return <CardRecipeLoader />
@@ -17,17 +17,16 @@ const CardRecipeList = () => {
 
   return (
     <>
-     {data ? (
+     {recipeIds ? (
         <InfiniteScroll
-          dataLength={data.length}
+          dataLength={recipeIds.length}
           height="100vh"
           children={
             <div
               style={{ height: `calc(100vh)` }}
               className="w-full flex flex-col items-center overflow-scroll"
             >
-              {data.map((recipeId: RecipeId) => (
-                console.log(recipeId),
+              {recipeIds.map((recipeId: RecipeId) => (
                 <CardRecipe key={recipeId.id} recipeId={recipeId} />
               ))}
             </div>
