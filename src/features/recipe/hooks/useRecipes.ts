@@ -13,13 +13,15 @@ const useRecipes = (offset: number) => {
   });
 
   useEffect(() => {
-    if(data !== undefined && recipeIds !==undefined) {      
-      setRecipeIds(previousRecipe => {
-        if (Array.isArray(previousRecipe)) {
-          return [...previousRecipe, ...data];
-        }
-      });
+    if(data !== undefined) {      
+      // setRecipeIds(previousRecipe => {
+      //   if (Array.isArray(previousRecipe)) {
+      //     return [...previousRecipe, ...data]
+      //   }
+      // })
+      setRecipeIds(data)    
     }
+  
   }, [data,recipeIds])
 
   return { offset, isLoading, recipeIds };

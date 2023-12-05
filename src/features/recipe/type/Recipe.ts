@@ -1,5 +1,5 @@
 import Category from "../../category/type/Category";
-import Image from "../../image/type/Image";
+import File from "../../File/type/File";
 import Ingredient from "../../ingredients/type/Ingredient";
 import RecipeStep from "../../recipeStep/type/RecipeStep";
 import Like from "./Like";
@@ -9,7 +9,7 @@ interface Recipe {
     name: string, 
     users: [],
     categories: Category[],
-    image: Image,
+    file: File[],
     like: Like[]
     ingredients: Ingredient[],
     creationTime: number,

@@ -4,13 +4,18 @@ import { RecipeId } from "../type/Recipe";
 import HeartIcon from "../../Icon/hearIcon";
 import EyeIcon from "../../Icon/EyeIcon";
 import useRecipe from "../hooks/useRecipe";
+import CardRecipeLoader from "./CardRecipeLoader";
 
 interface RecipeIdProps {
   recipeId: RecipeId;
 }
 
 const CardRecipe = ({ recipeId }: RecipeIdProps) => {
-  const { data } = useRecipe(recipeId.id);
+  const { data, isLoading } = useRecipe(recipeId.id);
+
+  if (isLoading) {
+    return <CardRecipeLoader />
+  }
 
   return (
     <div>
@@ -34,11 +39,19 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
           >
             voir plus
           </h1>
-          <img
-            className={`inset-0 w-full object-cover mx-auto max-h-96`}
-            src={defaultRecipe}
-            alt=""
-          />
+          {data?.file.length !== 0 ? (
+            <img
+              className={`inset-0 w-full object-cover mx-auto max-h-96`}
+              src={data?.file[0].imageName}
+              alt=""
+            />
+          ) : (
+            <img
+              className={`inset-0 w-full object-cover mx-auto max-h-96`}
+              src={defaultRecipe}
+              alt=""
+            />
+          )}
         </div>
         <div>
           <div className="flex px-2 py-2 gap-2">

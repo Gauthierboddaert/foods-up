@@ -20,8 +20,8 @@ const CardCategoriesList = () => {
         <>
           <div className="w-full h-12 flex justify-center mb-4">
             <div className="w-[500px] h-12 flex items-center overflow-x-scroll">
-              {data.map((category: Category) => (
-                <CardCategory key={category.id} category={category} />
+              {data.map((category: Category, index: number) => (
+                <CardCategory key={index} category={category} />
               ))}
             </div>
           </div>

@@ -8,8 +8,6 @@ const CardBestRecipe = () => {
     return <CardBestRecipeLoading />;
   }
 
-  console.log(data);
-
   return  (
     <div className="w-[300px] h-screen bg-red-600">{data.id}</div>
   
