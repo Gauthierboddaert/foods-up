@@ -4,6 +4,7 @@ import CardBestRecipeLoading from "./CardBestRecipeLoader";
 const CardBestRecipe = () => {
   const { isLoading, data } = useBestRecipe();
 
+  return <CardBestRecipeLoading />;
   if (isLoading || data === undefined) {
     return <CardBestRecipeLoading />;
   }
