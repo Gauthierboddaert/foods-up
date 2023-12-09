@@ -4,12 +4,19 @@ import FoodsUpIcon from "../../Icon/FoodsUpIcon";
 import HomeIcon from "../../Icon/HomeIcon";
 import SearchIcon from "../../Icon/SearchIcon";
 import LoginIcon from "../../Icon/LoginIcon";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/user/userReducer";
+import { isConnected } from "../../profil/utils/userUtils";
+import ProfilIcon from "../../Icon/ProfilIcon";
 
 const Layout = () => {
   const location = useLocation();
+
   const isLocatedTo = (path: string): boolean => {
     return location.pathname === path;
   };
+
+  const user = useSelector((state: RootState) => state.user);
 
   return (
     <>
@@ -23,18 +30,33 @@ const Layout = () => {
         onClick={() => redirect("/profil")}
         className="bg-white w-full border-t-2 h-12 absolute bottom-0 flex items-center justify-around md:hidden z-10"
       >
-        <HomeIcon
-          color={`${isLocatedTo("/") ? "#f46d12" : "black"}`}
-          className={`text-xl cursor-pointer`}
-        />
-        <AccountIcon
-          color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
-          className=" text-xl cursor-pointer"
-        />
-        <SearchIcon
-          color={`${isLocatedTo("/search") ? "#f46d12" : "black"}`}
-          className=" text-xl cursor-pointer"
-        />
+        <Link to="/">
+          <HomeIcon
+            color={`${isLocatedTo("/") ? "#f46d12" : "black"}`}
+            className={`text-xl cursor-pointer`}
+          />
+        </Link>
+        <Link to="/search">
+          <SearchIcon
+            color={`${isLocatedTo("/search") ? "#f46d12" : "black"}`}
+            className=" text-xl cursor-pointer"
+          />
+        </Link>
+        {isConnected(user) ? (
+          <Link to="/profil">
+            <AccountIcon
+              color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
+              className=" text-xl cursor-pointer"
+            />
+          </Link>
+        ) : (
+          <Link to="/login">
+            <LoginIcon
+              color={`${isLocatedTo("/login") ? "#f46d12" : "black"}`}
+              className=" text-xl cursor-pointer"
+            />
+          </Link>
+        )}
       </div>
       {/* RESPONSIVE MAX 768PX */}
 
@@ -86,27 +108,52 @@ const Layout = () => {
                 </p>
               </div>
             </Link>
-            <Link to="/login">
+
+            {isConnected(user) ? (
+              <Link to="/profil">
               <div
                 className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
-                  isLocatedTo("/") ? "active" : ""
+                  isLocatedTo("/profil") ? "active" : ""
                 }`}
               >
-                <LoginIcon
-                  color={`${isLocatedTo("/login") ? "#f46d12" : "black"}`}
+                <AccountIcon
+                  color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
                   className=" text-xl cursor-pointer"
                 />
                 <p
                   className={`max-lg:hidden ml-3 ${
-                    isLocatedTo("/login")
+                    isLocatedTo("/profil")
                       ? "text-foods-orange font-bold"
                       : "black"
                   }`}
                 >
-                  Se connecter
+                  Profil
                 </p>
               </div>
             </Link>
+            ) : (
+              <Link to="/login">
+                <div
+                  className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
+                    isLocatedTo("/") ? "active" : ""
+                  }`}
+                >
+                  <LoginIcon
+                    color={`${isLocatedTo("/login") ? "#f46d12" : "black"}`}
+                    className=" text-xl cursor-pointer"
+                  />
+                  <p
+                    className={`max-lg:hidden ml-3 ${
+                      isLocatedTo("/login")
+                        ? "text-foods-orange font-bold"
+                        : "black"
+                    }`}
+                  >
+                    Se connecter
+                  </p>
+                </div>
+              </Link>
+            )}
           </div>
         </div>
       </div>

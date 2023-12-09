@@ -6,12 +6,10 @@ export const setUser = createAction<User>('setUser'); // Ajouter un objet avec u
 const userReducer = createReducer<User | null>(null, (builder) => {
   builder
     .addCase(setUser, (state, action) => {
-      const user: User = action.payload
-
-      return user ;
+      return action.payload ;
     });
 });
 
 export default userReducer;
 
-export type UserState = ReturnType<typeof userReducer>;
+export type RootState = ReturnType<typeof userReducer>;

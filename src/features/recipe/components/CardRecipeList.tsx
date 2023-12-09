@@ -5,13 +5,25 @@ import CardRecipe from "./CardRecipe";
 import { RecipeId } from "../type/Recipe";
 import { useState } from "react";
 import Loader from "../../loader/component/Loader";
+import useTotalRecipe from "../hooks/useTotalRecipe";
 
 const CardRecipeList = () => {
 
   const [offset, setOffset] = useState<number>(0);
-  const { isLoading, recipeIds } = useRecipes(offset);
+  const recipeIds = useRecipes(offset);
+  const totalRecipe = useTotalRecipe();
 
-  if(isLoading) {
+
+  const hasMoreRecipe = () => {
+    
+      if(!totalRecipe.isLoading && totalRecipe.data !== undefined) {
+        return totalRecipe.data > offset;
+      }
+
+      return false;
+  }
+
+  if(recipeIds === undefined) {
     return <CardRecipeLoader />
   }
 
@@ -32,7 +44,7 @@ const CardRecipeList = () => {
             </div>
           }
           loader={<Loader />}
-          hasMore={true}
+          hasMore={hasMoreRecipe()}
           next={() => setOffset(offset + 10)}
         />
       ) : (

@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
 import getTotalRecipe from "../api/getTotalRecipe";
+import { useQuery } from "react-query";
 
 const useTotalRecipe = () => {
-  const [totalRecipe, setTotalRecipe] = useState<number>(0);
+  const { isLoading, data } = useQuery({
+    queryKey: ["totalRecipe"],
+    queryFn: () => getTotalRecipe(),
+  });
 
-  useEffect(() => {
-    getTotalRecipe().then((data: number) => {
-      setTotalRecipe(data);
-    });
-  }, []);
-
-  return totalRecipe;
+  return { isLoading, data };
 };
 
 export default useTotalRecipe;

@@ -3,7 +3,7 @@ import logo from "../../../../public/assets/foodsUp.png";
 import { useNavigate } from "react-router-dom";
 import postLogin from "../api/postLogin";
 import { useDispatch, useSelector } from "react-redux";
-import { UserState, setUser } from "../../redux/user/userReducer";
+import { RootState, setUser } from "../../redux/user/userReducer";
 
 
 const Login: FunctionComponent = () => {
@@ -15,24 +15,21 @@ const Login: FunctionComponent = () => {
 
 
   
-  const user = useSelector((state: UserState) => state.user);
+  const user = useSelector((state: RootState) => state.user);
 
-  console.log(user);
   const dispatch = useDispatch();
-
-
 
   const onPressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if ("Enter" === event.key) {
       handleLogin();
     }
   };
-
   
   const handleLogin =  () => {
     setIsLoading(true);
     postLogin(email, password).then((response) => {
         dispatch(setUser(response));
+        navigate("/");
     }).finally(() => {
         setIsLoading(false);
     }).catch((error) => {

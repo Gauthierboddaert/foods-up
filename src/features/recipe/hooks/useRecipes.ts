@@ -6,25 +6,16 @@ import { RecipeId } from "../type/Recipe";
 const useRecipes = (offset: number) => {
 
   const [recipeIds, setRecipeIds] = useState<RecipeId[]>()
-
-  const { isLoading, data } = useQuery({
-    queryKey: [`recipesId_${offset}`],
-    queryFn: () => getRecipes(offset),
-  });
-
-  useEffect(() => {
-    if(data !== undefined) {      
-      // setRecipeIds(previousRecipe => {
-      //   if (Array.isArray(previousRecipe)) {
-      //     return [...previousRecipe, ...data]
-      //   }
-      // })
-      setRecipeIds(data)    
-    }
   
-  }, [data,recipeIds])
+  useEffect(() => {
+    getRecipes(offset).then((res) => {
+      setRecipeIds(previsous => {
+        return [...(previsous || []), ...res]
+      })
+    })
+  }, [offset])
 
-  return { offset, isLoading, recipeIds };
+  return recipeIds;
 };
 
 export default useRecipes;
