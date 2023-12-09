@@ -10,7 +10,7 @@ import useTotalRecipe from "../hooks/useTotalRecipe";
 const CardRecipeList = () => {
 
   const [offset, setOffset] = useState<number>(0);
-  const recipeIds = useRecipes(offset);
+  const {recipeIds} = useRecipes(offset);
   const totalRecipe = useTotalRecipe();
 
 

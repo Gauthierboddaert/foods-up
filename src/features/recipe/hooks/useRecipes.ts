@@ -4,18 +4,24 @@ import { useQuery } from "react-query";
 import { RecipeId } from "../type/Recipe";
 
 const useRecipes = (offset: number) => {
+  const [recipeIds, setRecipeIds] = useState<RecipeId[]>();
 
-  const [recipeIds, setRecipeIds] = useState<RecipeId[]>()
-  
+  const { isLoading, data } = useQuery({
+    queryKey: [`recipesId_${offset}`],
+    queryFn: () => getRecipes(offset),
+  });
+
+
   useEffect(() => {
-    getRecipes(offset).then((res) => {
-      setRecipeIds(previsous => {
-        return [...(previsous || []), ...res]
-      })
-    })
-  }, [offset])
+    if (data !== undefined) {
+      setRecipeIds((previous) => {
+        return [...(previous || []), ...data];
+      });
+    }
+  }, [data]);
 
-  return recipeIds;
+
+  return { offset, isLoading, recipeIds };
 };
 
 export default useRecipes;
