@@ -1,12 +1,13 @@
 import { useQuery } from "react-query";
+import getCategory from "../api/getCategory";
 
-const useCategory = () => {
-    const {data} = useQuery({
-        queryKey: ["category"],
-        queryFn: () => fetch("http://localhost:3000/api/category").then(res => res.json())
+const useCategory = (name: string|undefined) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: [`category_${name}`],
+        queryFn: () => getCategory(name)
     });
 
-    return {data}
+    return { data, isLoading, error }
 }
 
 export default useCategory;

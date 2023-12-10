@@ -10,7 +10,7 @@ type Props =  {
 
 }
 
-const EyeIcon: FunctionComponent<Props> = ( {width = 13, height = 12, fill = "none", color = "black", className = "", borderColor = 'black'}) => {
+const EyeIcon: FunctionComponent<Props> = ( {width = 13, height = 12, fill = "none", className = "", borderColor = 'black'}) => {
 
     return (
         <svg className={className} width={width} height={height} viewBox="0 0 14 11" fill={fill} xmlns="http://www.w3.org/2000/svg">
