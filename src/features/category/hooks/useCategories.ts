@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
-import Category from "../type/Category";
 import getCategories from "../api/getCategories";
+import { useQuery } from "react-query";
 
 const useCategories = () => {
-    const [categories, setCategories] = useState<Category[]>([]);
+  const { isLoading, data } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
 
-    useEffect(() => {
-        getCategories().then((category: Category[]) => {
-            setCategories(category);
-        })
-    }, [])
-
-    return categories;
-}
+  return { isLoading, data };
+};
 
 export default useCategories;

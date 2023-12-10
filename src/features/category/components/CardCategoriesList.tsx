@@ -1,16 +1,11 @@
-import { useQuery } from "react-query";
 import Category from "../type/Category";
 import CardCategoriesLoader from "./CardCategoriesLoader";
 import CardCategory from "./CardCategory";
-import getCategories from "../api/getCategories";
+import useCategories from "../hooks/useCategories";
 
 const CardCategoriesList = () => {
   
-  const { isLoading, data } = useQuery({
-    queryKey: ["categories"],
-    queryFn: getCategories,
-
-  });
+  const { isLoading, data } = useCategories();
 
   return (
     <>
