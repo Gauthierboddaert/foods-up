@@ -23,6 +23,7 @@ export default {
       'nauticalCyan': '#1BBE9B',
       'foods-orange': '#f46d12',
       'grey-hover': '#fbfbfb',
+      'grey-100': '#e5e7eb',
       current: 'currentColor',
       black: '#000',
       white: '#fff',

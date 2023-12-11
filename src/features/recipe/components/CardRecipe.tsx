@@ -17,6 +17,8 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
     return <CardRecipeLoader />
   }
 
+  console.log(data?.file);
+
   return (
     <div>
       <div className="flex justify-center w-full">

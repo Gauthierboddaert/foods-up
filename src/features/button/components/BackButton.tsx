@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import BackWardIcon from "../../Icon/backWardIcon";
+import BackWardIcon from "../../Icon/BackWardIcon";
 
 const BackButton = () => {
   return (
