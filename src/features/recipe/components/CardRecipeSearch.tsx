@@ -8,6 +8,7 @@ interface RecipeSearchProps {
 const CardRecipeSearch = ({ recipeId }: RecipeSearchProps) => {
     const recipe = useRecipe(recipeId.id);
 
+    console.log(recipe);
     
 };
 

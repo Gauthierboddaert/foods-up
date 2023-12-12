@@ -1,13 +1,7 @@
 import FilterIcon from "../../Icon/FilterIcon";
-import CardRecipe from "../../recipe/components/CardRecipe";
-import { RecipeId } from "../../recipe/type/Recipe";
 import SearchBar from "./SearchBar";
 
 const SearchCard = () => {
-
-  const recipeId: RecipeId = {
-    id: 1,
-  };
   
   return (
     <div className="w-full h-screen">

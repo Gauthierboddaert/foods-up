@@ -7,7 +7,6 @@ import LoginIcon from "../../Icon/LoginIcon";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/user/userReducer";
 import { isConnected } from "../../profil/utils/userUtils";
-import ProfilIcon from "../../Icon/ProfilIcon";
 
 const Layout = () => {
   const location = useLocation();
@@ -21,14 +20,16 @@ const Layout = () => {
   return (
     <>
       {/* RESPONSIVE MAX 768PX */}
-      <div className="h-16 flex items-center border-2 font-anton md:hidden z-10">
+      <div className="h-16 w-full fixed bg-white flex items-center border-2 font-anton md:hidden z-10">
         <h1 className="ml-8 text-2xl">FOODS&nbsp;</h1>
         <h1 className="text-2xl text-foods-orange">UP</h1>
       </div>
+      {/* this div is here to push the content down */}
+      <div className="h-16 w-full md:hidden"></div>
 
       <div
         onClick={() => redirect("/profil")}
-        className="bg-white w-full border-t-2 h-12 absolute bottom-0 flex items-center justify-around md:hidden z-10"
+        className="fixed bg-white w-full border-t-2 h-12 bottom-0 flex items-center justify-around md:hidden z-10"
       >
         <Link to="/">
           <HomeIcon
@@ -61,7 +62,7 @@ const Layout = () => {
       {/* RESPONSIVE MAX 768PX */}
 
       <div className="max-md:hidden flex">
-        <div className="w-24 border-r-[1px] border-r-[#aeaeae] h-screen flex flex-col lg:w-52">
+        <div className="fixed w-24 border-r-[1px] border-r-[#aeaeae] h-screen flex flex-col lg:w-52">
           <div className="h-1/3">
             <FoodsUpIcon className="w-full h-24 lg:w-52 lg:h-52" />
           </div>
@@ -156,6 +157,7 @@ const Layout = () => {
             )}
           </div>
         </div>
+        <div className="w-24 lg:w-52"></div>
       </div>
     </>
   );
