@@ -112,26 +112,26 @@ const Layout = () => {
 
             {isConnected(user) ? (
               <Link to="/profil">
-              <div
-                className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
-                  isLocatedTo("/profil") ? "active" : ""
-                }`}
-              >
-                <AccountIcon
-                  color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
-                  className=" text-xl cursor-pointer"
-                />
-                <p
-                  className={`max-lg:hidden ml-3 ${
-                    isLocatedTo("/profil")
-                      ? "text-foods-orange font-bold"
-                      : "black"
+                <div
+                  className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
+                    isLocatedTo("/profil") ? "active" : ""
                   }`}
                 >
-                  Profil
-                </p>
-              </div>
-            </Link>
+                  <AccountIcon
+                    color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
+                    className=" text-xl cursor-pointer"
+                  />
+                  <p
+                    className={`max-lg:hidden ml-3 ${
+                      isLocatedTo("/profil")
+                        ? "text-foods-orange font-bold"
+                        : "black"
+                    }`}
+                  >
+                    Profil
+                  </p>
+                </div>
+              </Link>
             ) : (
               <Link to="/login">
                 <div

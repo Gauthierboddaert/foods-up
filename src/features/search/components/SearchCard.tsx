@@ -9,7 +9,7 @@ const SearchCard = () => {
       <div className="">
         <FilterIcon className="w-[20px] h-[20px] fill-current" />
       </div>
-      <div className="w-full flex bg-red-100 h-screen mt-12">
+      <div className="w-full flex bg-red-100 mt-12">
         
       </div>
     </div>
