@@ -5,8 +5,6 @@ import { RecipeId } from "../type/Recipe";
 
 const useRecipes = (offset: number) => {
   const [recipeIds, setRecipeIds] = useState<RecipeId[]>();
-  const [recipeLoaded, setRecipeLoaded] = useState<RecipeId[]>();
-
   
 
   const { isLoading, data } = useQuery({

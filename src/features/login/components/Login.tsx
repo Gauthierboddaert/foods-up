@@ -2,8 +2,8 @@ import { FunctionComponent, useState } from "react";
 import logo from "../../../../public/assets/foodsUp.png";
 import { useNavigate } from "react-router-dom";
 import postLogin from "../api/postLogin";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, setUser } from "../../redux/user/userReducer";
+import { useDispatch } from "react-redux";
+import {  setUser } from "../../redux/user/userReducer";
 
 
 const Login: FunctionComponent = () => {
@@ -12,10 +12,8 @@ const Login: FunctionComponent = () => {
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
-
-
   
-  const user = useSelector((state: RootState) => state.user);
+  // const user = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
 
