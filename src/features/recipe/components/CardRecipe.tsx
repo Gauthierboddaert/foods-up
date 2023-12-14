@@ -5,20 +5,29 @@ import HeartIcon from "../../Icon/hearIcon";
 import EyeIcon from "../../Icon/EyeIcon";
 import useRecipe from "../hooks/useRecipe";
 import CardRecipeLoader from "./CardRecipeLoader";
+import { useInView } from "react-intersection-observer";
 
 interface RecipeIdProps {
   recipeId: RecipeId;
 }
 
 const CardRecipe = ({ recipeId }: RecipeIdProps) => {
-  const { data, isLoading } = useRecipe(recipeId.id);
+  const { ref, inView } = useInView({
+    rootMargin: "4500px",
+  });
 
-  if (isLoading) {
-    return <CardRecipeLoader />
+  const { data, isLoading } = useRecipe(recipeId.id, inView);
+
+  if (!data || isLoading) {
+    return (
+      <div ref={ref}>
+        <CardRecipeLoader />;
+      </div>
+    );
   }
 
   return (
-    <div>
+    <div className="max-h-[600px]">
       <div className="flex justify-center w-full">
         <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
       </div>

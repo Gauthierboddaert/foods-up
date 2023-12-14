@@ -5,8 +5,8 @@ import HomeIcon from "../../Icon/HomeIcon";
 import SearchIcon from "../../Icon/SearchIcon";
 import LoginIcon from "../../Icon/LoginIcon";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/user/userReducer";
 import { isConnected } from "../../profil/utils/userUtils";
+import { RootState } from "../../redux/store";
 
 const Layout = () => {
   const location = useLocation();
