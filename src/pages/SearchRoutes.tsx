@@ -1,8 +1,8 @@
 import { Route } from "react-router-dom";
-import SearchCard from "../features/search/components/SearchCard";
+import CardSearchList from "../features/search/components/CardSearchList";
 
 const SearchRoutes = [
-   <Route path="/search" key={5} Component={SearchCard} />
+   <Route path="/search" key={5} Component={CardSearchList} />
 ]
 
 export default SearchRoutes;

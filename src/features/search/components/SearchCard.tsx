@@ -4,13 +4,10 @@ import SearchBar from "./SearchBar";
 const SearchCard = () => {
   
   return (
-    <div className="w-full h-screen">
+    <div className="w-full">
       <SearchBar />
       <div className="">
         <FilterIcon className="w-[20px] h-[20px] fill-current" />
-      </div>
-      <div className="w-full flex bg-red-100 mt-12">
-        
       </div>
     </div>
   );
