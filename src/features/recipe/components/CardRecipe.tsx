@@ -27,7 +27,7 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
   }
 
   return (
-    <div className="max-h-[600px]">
+    <div>
       <div className="flex justify-center w-full">
         <hr className="border-1 border-solid border-foods-orange w-72 my-4" />
       </div>
@@ -50,13 +50,13 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
           </h1>
           {data?.file.length !== 0 ? (
             <img
-              className={`inset-0 w-full object-cover mx-auto max-h-96`}
+              className={`inset-0 w-full object-cover mx-auto max-h-[400px]`}
               src={data?.file[0].imageName}
               alt=""
             />
           ) : (
             <img
-              className={`inset-0 w-full object-cover mx-auto max-h-96`}
+              className={`inset-0 w-full object-cover mx-auto max-h-[500px]`}
               src={defaultRecipe}
               alt=""
             />
@@ -67,9 +67,9 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
             <HeartIcon width={20} height={20} color="black" />
             <EyeIcon width={20} height={20} color="black" />
           </div>
-          <div className="flex flex-col px-2 pb-4">
+          <div className="flex flex-col px-2">
             <p className=" font-bold text-sm">Gauthier Boddaert</p>
-            <p className="font-light text-sm line-clamp-2">
+            <p className="font-light text-sm line-clamp-2 pb-4">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Dignissimos tenetur maxime odio pariatur sapiente fuga ratione
               exercitationem qui molestias porro? Magni quo expedita possimus

@@ -8,7 +8,6 @@ const CardSearchResultLoader = ({ className }: CardSearchResultLoaderProps) => {
   return (
     <div className={`flex ${className} pt-12`} >
       <div className="max-w-screen-lg">
-        {/* Set a maximum width */}
         <ContentLoader
           className="w-full"
           viewBox="0 0 100 70"
@@ -24,7 +23,6 @@ const CardSearchResultLoader = ({ className }: CardSearchResultLoaderProps) => {
           <rect x="15" y="53" rx="3" ry="4" width="60" height="5" />
           <rect x="15" y="60" rx="3" ry="4" width="60" height="5" />
         </ContentLoader>
-        
       </div>
     </div>
   );

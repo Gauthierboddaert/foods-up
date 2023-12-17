@@ -24,6 +24,7 @@ export default {
       'foods-orange': '#f46d12',
       'grey-hover': '#fbfbfb',
       'grey-100': '#e5e7eb',
+      'grey-200': 'rgb(63, 55, 53)',
       current: 'currentColor',
       black: '#000',
       white: '#fff',

@@ -6,10 +6,11 @@ const useRecipe = (recipeId: number, enabled: boolean = true) => {
 
     // console.log("useRecipe", recipeId, enabled)
 
-    const {isLoading,data} = useQuery({
+    const {data, isLoading} = useQuery({
         queryKey: ["recipe", recipeId],
         queryFn: () => getRecipe(recipeId),
         enabled
+
     })
 
     return {isLoading, data}
