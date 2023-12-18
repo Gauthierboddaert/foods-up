@@ -3,6 +3,7 @@ import useCategory from "../hooks/useCategory";
 import NotFoundResource from "../../not-found/components/NotFoundResource";
 import defaultImage from "../../../../public/assets/defaultImage.jpg";
 import BackButton from "../../button/components/BackButton";
+import { motion } from "framer-motion";
 
 const CardDetailCategory = () => {
   const { name } = useParams();
@@ -19,8 +20,13 @@ const CardDetailCategory = () => {
   console.log(data);
 
   return (
-    <div className="w-full">
-        <BackButton className="w-6 h-6 ml-4 mt-4" />
+    <motion.div
+      initial={{ x: -50 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.1 }}
+      className="w-full"
+    >
+      <BackButton className="w-6 h-6 ml-4 mt-4" />
       <div className="flex items-center mt-12 gap-6 flex-col">
         {data?.file.length !== 0 ? (
           <img
@@ -39,8 +45,7 @@ const CardDetailCategory = () => {
         </div>
       </div>
       {/* //todo infinite scroll for each recipe content current category */}
-
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,13 +3,12 @@ import { FunctionComponent } from "react";
 type Props =  {
     width?: number,
     height?: number,
-    fill?: string,
     color?: string,
     className?: string
 
 }
 
-const HeartIcon: FunctionComponent<Props> = ( {width = 13, height = 12, fill = "none", color = "black", className = ""}) => {
+const HeartIcon: FunctionComponent<Props> = ( {width = 13, height = 12, color = "black", className = ""}) => {
 
     return (
         <svg  className={className} width={width} height={height} viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
