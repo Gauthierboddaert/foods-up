@@ -21,7 +21,7 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
   if (!data || isLoading) {
     return (
       <div ref={ref}>
-        <CardRecipeLoader />;
+        <CardRecipeLoader />
       </div>
     );
   }

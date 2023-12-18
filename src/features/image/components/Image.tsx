@@ -5,15 +5,17 @@ interface ImageProps {
     src: File | undefined;
     alt: string | undefined;
     className?: string;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
-const Image = ({src, alt, className}: ImageProps) => {
+const Image = ({src, alt, className, onMouseEnter}: ImageProps) => {
 
     if(undefined === src?.imageName) {
-        return <img className={className} src={defaultImage} alt="defaultImage" />
+        return <img className={`${className}` } src={defaultImage} alt="defaultImage" />
     }
 
-    return <img className={className} src={src.imageName} alt={alt} />
+    return <img onMouseEnter={onMouseEnter} className={className} src={src.imageName} alt={alt} />
 }
 
 export default Image;
