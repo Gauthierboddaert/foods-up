@@ -1,4 +1,4 @@
-import { easeInOut, motion, spring } from "framer-motion";
+import { motion } from "framer-motion";
 import PlusIcon from "../../Icon/PlusIcon";
 import LessIcon from "../../Icon/LessIcon";
 
