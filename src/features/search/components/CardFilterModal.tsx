@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import CloseIcon from "../../Icon/CloseIcon";
-import CardFilterCategory from "../../category/components/CardFilterCategoryList";
+import CardCategoryFilterList from "../../category/components/CardCategoryFilterList";
+import CardIngredientFilterList from "../../ingredients/components/CardIngredientFilterList";
 
 interface CardFilterModalProps {
   displayFilter: boolean;
@@ -20,14 +21,16 @@ const CardFilterModal = ({ displayFilter, handleModalStatus }: CardFilterModalPr
           scale: displayFilter ? 1 : 0,
         }}
         transition={{ duration: 0.1 }}
-        className={` w-3/4 h-[300px] overflow-y-scroll bg-white absolute mt-8 rounded-lg border-[1px] border-gray-200 shadow-md z`}
+        className={` w-3/4 h-[400px] overflow-y-scroll bg-white absolute mt-8 rounded-lg border-[1px] border-gray-200 shadow-md z`}
       >
         
-        <div className="w-full flex justify-end">
+        <div className="w-full flex justify-end sticky top-0 ">
             <CloseIcon handleModalStatus={ () => handleModalStatus(displayFilter) } className="hover:cursor-pointer text-foods-orange w-[25px] h-[25px] fill-current mt-2 mr-2" />
         </div>
-        <CardFilterCategory  />
-        <CardFilterCategory  />
+        <div className="w-full flex flex-col justify-center items-center">
+          <CardCategoryFilterList  />
+          <CardIngredientFilterList  />
+        </div>
         
 
       </motion.div>

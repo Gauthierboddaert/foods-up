@@ -17,7 +17,7 @@ const SearchCard = () => {
 
   return (
     <div className="w-full">
-      <SearchBar />
+      <SearchBar placeHolder="Rechercher une recette ..." className="mt-12" />
       <div onClick={() => handleModalStatus()} className="w-min">
         <FilterIcon className="w-[20px] h-[20px] fill-current" />
       </div>
