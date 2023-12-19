@@ -1,13 +1,20 @@
+import useIngredients from "../hooks/useIngredients";
+import IngredientId from "../type/IngredientId";
+import CardIngredientFilter from "./CardIngredientFilter";
+
 const CardIngredientFilterList = () => {
-//   const { data, isLoading } = useCategories();
+  const { data, isLoading } = useIngredients(0);
 
-//   if (isLoading) {
-//     return <CardCategoriesLoader />;
-//   }
+  if (isLoading) {
+    return "id Loading";
+  }
 
+  
   return (
     <>
-      <h1>coucou</h1>
+      {data?.map((ingredientId: IngredientId) => {
+        <CardIngredientFilter key={ingredientId.id} ingredientId={ingredientId} />;
+      })}
     </>
   );
 };

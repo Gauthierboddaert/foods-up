@@ -4,7 +4,7 @@ import IngredientId from "../type/IngredientId";
 
 const useIngredient = (id: IngredientId) => {
   return useQuery({
-    queryKey: "ingredients",
+    queryKey: ["ingredient", id],
     queryFn: () => () => getIngredient(id),
   });
 };
