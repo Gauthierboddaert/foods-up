@@ -1,27 +1,14 @@
-import { useState } from "react";
 import FilterIcon from "../../Icon/FilterIcon";
 import SearchBar from "./SearchBar";
-import CardFilterModal from "./CardFilterModal";
+import DialogSearch from "../../Dialog/Components/DialogSearch";
 
 
 const SearchCard = () => {
-  const [displayFilter, setDisplayFilter] = useState(false);
-
-  const handleModalStatus = () => {
-    if (displayFilter) {
-      setDisplayFilter(false);
-    } else {
-      setDisplayFilter(true);
-    }
-  };
-
+ 
   return (
     <div className="w-full">
       <SearchBar placeHolder="Rechercher une recette ..." className="mt-12" />
-      <div onClick={() => handleModalStatus()} className="w-min">
-        <FilterIcon className="w-[20px] h-[20px] fill-current" />
-      </div>
-      <CardFilterModal handleModalStatus={handleModalStatus} displayFilter={displayFilter} />
+      <DialogSearch button={<FilterIcon className="w-[20px] h-[20px] fill-current" />} />
     </div>
   );
 };

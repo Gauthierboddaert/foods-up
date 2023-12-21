@@ -20,7 +20,7 @@ const Layout = () => {
   return (
     <>
       {/* RESPONSIVE MAX 768PX */}
-      <div className="h-16 w-full fixed bg-white flex items-center border-2 font-anton md:hidden z-10">
+      <div className="h-16 w-full fixed bg-white flex items-center border-2 font-anton md:hidden">
         <h1 className="ml-8 text-2xl">FOODS&nbsp;</h1>
         <h1 className="text-2xl text-foods-orange">UP</h1>
       </div>
@@ -29,7 +29,7 @@ const Layout = () => {
 
       <div
         onClick={() => redirect("/profil")}
-        className="fixed bg-white w-full border-t-2 h-12 bottom-0 flex items-center justify-around md:hidden z-10"
+        className="fixed bg-white w-full border-t-2 h-12 bottom-0 flex items-center justify-around md:hidden"
       >
         <Link to="/">
           <HomeIcon
