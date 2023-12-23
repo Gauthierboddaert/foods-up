@@ -10,7 +10,7 @@ const CardBestRecipe = () => {
   }
 
   return  (
-    <div className="w-[300px] h-screen bg-red-600">{data.id}</div>
+    <div className="w-[300px] h-screen bg-red-600">{data?.id}</div>
   
   );
 };
