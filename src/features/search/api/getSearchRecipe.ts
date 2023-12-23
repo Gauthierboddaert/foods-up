@@ -9,7 +9,10 @@ const getSearchRecipe = async (
     .post("/search", {
       name: form.name,
     })
-    .then((response) => response.data);
+    .then((response) => {
+      console.log(response.data, form);
+      return response.data;
+    });
 };
 
 export default getSearchRecipe;
