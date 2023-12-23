@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FoldActionButton from "../../button/components/FoldActionButton";
 import SearchBar from "../../search/components/SearchBar";
+import { motion } from "framer-motion";
 
 interface CardFilterTypeProps {
   children: React.ReactNode;
@@ -18,23 +19,22 @@ const CardFilterType = ({
   const [isFoldUp, setIsFoldUp] = useState<boolean>(false);
 
   return (
-    <FoldActionButton
-      isFoldUp={isFoldUp}
-      setIsFoldUp={setIsFoldUp}
-      className="w-3/4"
-    >
-      <div className={`w-full ${className} `}>
-        <p className="text-foods-orange font-bold mb-4 ml-4 border-b-[1px]">
-          {title}
-        </p>
-        <div className={`${isFoldUp ? "hidden" : "block"}`}>
-          <SearchBar placeHolder={placeHolder} className="my-4" />
-          <div className="w-full flex flex-wrap justify-center h-[180px] overflow-y-scroll">
-            {children}
-          </div>
+    <div className="w-3/4">
+      <FoldActionButton isFoldUp={isFoldUp} setIsFoldUp={setIsFoldUp}>
+        <div className={`w-full ${className} `}>
+          <p className="text-foods-orange font-bold mb-4 ml-4 border-b-[1px]">
+            {title}
+          </p>
         </div>
-      </div>
-    </FoldActionButton>
+      </FoldActionButton>
+
+      <motion.div className={`${isFoldUp ? "block" : "hidden"}`}>
+        <SearchBar placeHolder={placeHolder} className="my-4" />
+        <div className="w-full flex flex-wrap justify-center max-h-[180px] overflow-y-scroll">
+          {children}
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

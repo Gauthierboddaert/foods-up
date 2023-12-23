@@ -23,7 +23,7 @@ const FoldActionButton = ({
     isFoldUp ? setIsFoldUp(false) : setIsFoldUp(true);
 
     controls.start({
-      rotate: isFoldUp ? 90 : 0,
+      rotate: isFoldUp ? 0 : 90,
     });
   };
 
