@@ -15,7 +15,14 @@ const SearchBar = ({ className, placeHolder }: SearchBarProps) => {
           name="name"
           className="w-full h-12 pl-10 pr-4 border-[1px] border-[] rounded-md"
           placeHolder={placeHolder}
+          type="text"
         />
+        <Input
+          className="hidden"
+          placeHolder={placeHolder}
+          type="submit"
+        />
+        
       </div>
     </div>
   );

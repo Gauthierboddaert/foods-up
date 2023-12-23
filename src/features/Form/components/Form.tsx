@@ -1,21 +1,21 @@
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 
 interface IFormInput {
-  firstName: string;
-  lastName: string;
-  age: number;
+  name: string;
 }
 
-export default function Form() {
+interface FormProps {
+  children: React.ReactNode;
+}
+
+export default function Form({ children }: FormProps) {
   const methods = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <input {...methods.register("firstName")} />
-        <input {...methods.register("lastName")} />
-        <input type="submit" />
+        {children}
       </form>
     </FormProvider>
   );
