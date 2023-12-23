@@ -29,7 +29,7 @@ const CardSearchResult = ({ recipeId }: CardSearchResultProps) => {
   }
 
   return (
-    <div className="w-full md:w-[250px] flex flex-col items-center">
+    <div className="w-full md:w-[250px] flex flex-col items-center mb-4">
       <Link to={"/"} className="cursor-pointer">
         <Image
           src={data?.file[0]}

@@ -50,7 +50,7 @@ const DialogSearch = ({ button }: DialogSearchProps) => {
 
   return (
     <>
-      <button ref={refs.setReference} {...getReferenceProps()}>
+      <button type="button" ref={refs.setReference} {...getReferenceProps()}>
         {button}
       </button>
       {isOpen && (
