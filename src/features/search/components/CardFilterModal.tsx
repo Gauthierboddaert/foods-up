@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import CloseIcon from "../../Icon/CloseIcon";
 import CardCategoryFilterList from "../../category/components/CardCategoryFilterList";
 import CardFilterType from "../../Filter/Components/CardFilterType";
-import CardIngredientFilterList from "../../ingredients/components/CardIngredientFilterList";
 
 interface CardFilterModalProps {
   displayFilter: boolean;

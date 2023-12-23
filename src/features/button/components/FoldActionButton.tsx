@@ -1,6 +1,4 @@
 import { motion, useAnimation } from "framer-motion";
-import PlusIcon from "../../Icon/PlusIcon";
-import LessIcon from "../../Icon/LessIcon";
 import ChevronIcon from "../../Icon/ChevronIcon";
 
 interface FoldActionButtonProps {
