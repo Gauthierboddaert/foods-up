@@ -1,22 +1,25 @@
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-
-interface IFormInput {
-  name: string;
-}
+import { IFormRecipeSearch } from "../type/FormType";
 
 interface FormProps {
   children: React.ReactNode;
+  setFormData: (data: IFormRecipeSearch) => void;
+  defaultValues?: IFormRecipeSearch;
 }
 
-export default function Form({ children }: FormProps) {
-  const methods = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+const Form = ({ children, setFormData, defaultValues }: FormProps) => {
+  const methods = useForm<IFormRecipeSearch>({ defaultValues: defaultValues });
+
+  const OnSubmit: SubmitHandler<IFormRecipeSearch> = (data) => {
+    setFormData(data);
+    console.log(data);
+  };
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
-        {children}
-      </form>
+      <form onSubmit={methods.handleSubmit(OnSubmit)}>{children}</form>
     </FormProvider>
   );
-}
+};
+
+export default Form;
