@@ -1,5 +1,3 @@
-import { useFormContext } from "react-hook-form";
-
 interface InputProps {
   placeHolder: string;
   className?: string;
@@ -7,10 +5,8 @@ interface InputProps {
   type?: string;
 }
 
-const Input = ({ placeHolder, className, name, type = 'text' }: InputProps) => {
+const Input = ({ placeHolder, className, type = 'text' }: InputProps) => {
   // const { register } = useFormContext();
-
-  console.log(name);
 
   return (
     <input

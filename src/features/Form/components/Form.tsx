@@ -1,28 +1,22 @@
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
-import { IFormRecipeSearch } from "../type/FormType";
-interface FormSearchProps {
-  children: React.ReactNode;
+import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
+
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  age: number;
 }
 
-const Form = ({ children }: FormSearchProps) => {
-  const methods = useForm<IFormRecipeSearch>();
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit: SubmitHandler<IFormRecipeSearch> = (data: any) =>
-    console.log(data);
+export default function Form() {
+  const methods = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
     <FormProvider {...methods}>
-      <form
-        onSubmit={() =>
-          methods.handleSubmit(onSubmit) && event?.preventDefault()
-        }
-      >
-        {children}
-        <input type="submit"/>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <input {...methods.register("firstName")} />
+        <input {...methods.register("lastName")} />
+        <input type="submit" />
       </form>
     </FormProvider>
   );
-};
-
-export default Form;
+}
