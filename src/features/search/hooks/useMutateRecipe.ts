@@ -8,10 +8,7 @@ const useMutateRecipe = () => {
   return useMutation({
     mutationFn: (data: IFormRecipeSearch) => getSearchRecipe(data),
     onSuccess: () => {
-      queryClient.invalidateQueries(["searchRecipe"]);
-    },
-    onError: (error) => {
-      console.log(error);
+      queryClient.invalidateQueries(["searchRecipe"],);
     },
   });
 };

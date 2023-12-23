@@ -8,17 +8,13 @@ import { IFormTypeRecipe } from "../../Form/type/FormTypeRecipe";
 import { useState } from "react";
 
 const CardSearchList = () => {
-  const defaultValues: IFormTypeRecipe = {
-    name: "",
-  };
+  const [recipes, setRecipes] = useState<IFormTypeRecipe>({name: ""});
 
-  const [recipes, setRecipes] = useState<IFormTypeRecipe>(defaultValues);
-
-  const { isLoading, data } = useSearchRecipe(recipes);
-
+  const { isLoading, recipeIds } = useSearchRecipe(recipes);
+  console.log("data", recipeIds);
   return (
     <motion.div initial={{ x: -20 }} animate={{ x: 0 }} className="w-full">
-      <Form setValueForm={setRecipes} valueForm={recipes}>
+      <Form setValueForm={setRecipes}>
         <SearchCard />
         <div className="lg:flex lg:flex-row lg:justify-center">
           <div className="w-full flex flex-col md:flex-row md:justify-center md:flex-wrap mt-12 lg:w-3/4">
@@ -29,7 +25,7 @@ const CardSearchList = () => {
                 <CardSearchResultLoader className="justify-center" />
               </>
             ) : (
-              data?.map((recipe) => (
+              recipeIds?.map((recipe) => (
                 <CardSearchResult key={recipe.id} recipeId={recipe} />
               ))
             )}
