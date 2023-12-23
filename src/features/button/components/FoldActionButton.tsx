@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import PlusIcon from "../../Icon/PlusIcon";
 import LessIcon from "../../Icon/LessIcon";
+import ChevronIcon from "../../Icon/ChevronIcon";
 
 interface FoldActionButtonProps {
   className?: string;
@@ -15,39 +16,32 @@ const FoldActionButton = ({
   isFoldUp,
   setIsFoldUp,
 }: FoldActionButtonProps) => {
+
+  const controls = useAnimation();
+
   const handleFoldAction = () => {
     isFoldUp ? setIsFoldUp(false) : setIsFoldUp(true);
+
+    controls.start({
+      rotate: isFoldUp ? 90 : 0,
+    });
   };
 
-  const RenderIconFoldAction = () => {
-    if (isFoldUp) {
-      return (
-        <PlusIcon
-          onClick={() => handleFoldAction()}
-          isDisabled={isFoldUp}
-          className="w-5 h-5"
-        />
-      );
-    }
-
-    return (
-      <LessIcon
-        onClick={() => handleFoldAction()}
-        isDisabled={isFoldUp}
-        className="w-5 h-5"
-      />
-    );
-  };
+  
 
   return (
-    <motion.div
-      className={className}
-      initial={{ height: 0 }} // Hauteur initiale
-      animate={{ height: "auto" }} // Hauteur finale (auto pour s'ajuster au contenu)
-      transition={{ duration: 0.5, ease: "easeInOut" }} // Durée et fonction d'animation
-    >
-      {RenderIconFoldAction()}
-      {children}
+    <motion.div className={className}>
+      <div
+        onClick={() => handleFoldAction()}
+        className="flex w-full cursor-pointer"
+      >
+        {children}
+        <ChevronIcon
+          controls={controls}
+          onClick={() => handleFoldAction()}
+          className="w-4 h-4 mt-[4px]"
+        />
+      </div>
     </motion.div>
   );
 };

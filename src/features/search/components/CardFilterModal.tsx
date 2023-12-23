@@ -14,22 +14,15 @@ const CardFilterModal = ({
   handleModalStatus,
 }: CardFilterModalProps) => {
   return (
-    
     <div
       className={`${
         displayFilter ? "flex" : "hidden"
       } justify-center absolute w-full items-center h-screen`}
     >
       <motion.div
-        initial={{
-          opacity: 1,
-          scale: displayFilter ? 0.5 : 0,
-        }}
-        animate={{
-          opacity: 1,
-          scale: displayFilter ? 1 : 0,
-        }}
-        transition={{ duration: 0.1 }}
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.15 }}
         className={` w-3/4 h-[90vh] overflow-y-scroll md:h-[450px] bg-white absolute rounded-lg border-[1px] border-gray-200 shadow-md z`}
       >
         <div className="w-full flex justify-end sticky top-0 ">
@@ -47,7 +40,8 @@ const CardFilterModal = ({
           <CardFilterType
             title="Liste des ingrédients :"
             placeHolder="Rechercher un ingrédient "
-            children={CardIngredientFilterList()}
+            children={<div>test</div>}
+            // children={CardIngredientFilterList()}
           />
 
           {/* <CardIngredientFilterList /> */}

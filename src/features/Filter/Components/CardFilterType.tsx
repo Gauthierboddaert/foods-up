@@ -23,8 +23,8 @@ const CardFilterType = ({
       setIsFoldUp={setIsFoldUp}
       className="w-3/4"
     >
-      <div className={`w-full ${className}`}>
-        <p className="underline text-foods-orange font-bold mb-4 ml-4">
+      <div className={`w-full ${className} `}>
+        <p className="text-foods-orange font-bold mb-4 ml-4 border-b-[1px]">
           {title}
         </p>
         <div className={`${isFoldUp ? "hidden" : "block"}`}>

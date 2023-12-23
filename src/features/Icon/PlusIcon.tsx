@@ -10,7 +10,7 @@ const PlusIcon = ({ className, color, isDisabled, onClick }: PlusIconProps) => {
     <svg
       onClick={onClick}
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className} ${isDisabled ? "flex" : "hidden"}  cursor-pointer rounded-full border-[1px] border-black`}
+      className={`${className} ${isDisabled ? "flex" : "hidden"}  cursor-pointer rounded-full`}
       fill={color}
       viewBox="0 0 448 512"
     >
