@@ -19,10 +19,9 @@ const CardFilterModal = ({
       } justify-center absolute w-full items-center h-screen`}
     >
       <motion.div
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.15 }}
-        className={` w-3/4 h-[90vh] overflow-y-scroll md:h-[450px] md:w-[60%] bg-white absolute rounded-lg border-[1px] border-gray-200 shadow-md z`}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className={` w-3/4 h-[90vh] overflow-y-scroll md:h-[450px] md:w-[60%] bg-white absolute rounded-xl border-[1px] border-gray-200 shadow-md z`}
       >
         <div className="w-full flex justify-center items-center top-0 py-2 border-[1px] border-grey-hover mb-12 relative">
           <h2 className="py-2 font-bold">Filtres :</h2>

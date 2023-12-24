@@ -15,7 +15,6 @@ const useSearchRecipe = (form: IFormRecipeSearch) => {
 
   useEffect(() => {
     if (data !== undefined) {
-      console.log(data, 'trigge s');
       setRecipeIds(data);
     }
   }, [data, form]);

@@ -8,24 +8,22 @@ import {
   FloatingOverlay,
   FloatingFocusManager,
 } from "@floating-ui/react";
-import { useState } from "react";
-import CardFilterModal from "../../search/components/CardFilterModal";
+
 
 interface DialogSearchProps {
   button: React.ReactNode;
+  children?: React.ReactNode;
+  handleModalStatus?: () => void;
+  isOpen?: boolean;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const DialogSearch = ({ button }: DialogSearchProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleModalStatus = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
-  };
-
+const DialogSearch = ({
+  button,
+  children,
+  isOpen,
+  setIsOpen,
+}: DialogSearchProps) => {
   const { refs, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
@@ -44,10 +42,6 @@ const DialogSearch = ({ button }: DialogSearchProps) => {
     role,
   ]);
 
-  // Set up label and description ids
-  const labelId = useId();
-  const descriptionId = useId();
-
   return (
     <>
       <button type="button" ref={refs.setReference} {...getReferenceProps()}>
@@ -57,21 +51,16 @@ const DialogSearch = ({ button }: DialogSearchProps) => {
         <FloatingOverlay
           lockScroll
           style={{
-            background: "rgba(0, 0, 0, 0.6)",
+            background: "rgba(0, 0, 0, 0.4)",
             backdropFilter: "blur(3px)",
           }}
         >
           <FloatingFocusManager context={context}>
             <div
               ref={refs.setFloating}
-              aria-labelledby={labelId}
-              aria-describedby={descriptionId}
               {...getFloatingProps()}
             >
-              <CardFilterModal
-                handleModalStatus={handleModalStatus}
-                displayFilter={isOpen}
-              />
+              {children}
             </div>
           </FloatingFocusManager>
         </FloatingOverlay>

@@ -10,7 +10,6 @@ const getSearchRecipe = async (
       name: form.name,
     })
     .then((response) => {
-      console.log(response.data, form);
       return response.data;
     });
 };

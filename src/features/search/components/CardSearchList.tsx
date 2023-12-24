@@ -11,7 +11,7 @@ const CardSearchList = () => {
   const [recipes, setRecipes] = useState<IFormTypeRecipe>({name: ""});
 
   const { isLoading, recipeIds } = useSearchRecipe(recipes);
-  console.log("data", recipeIds);
+  
   return (
     <motion.div initial={{ x: -20 }} animate={{ x: 0 }} className="w-full">
       <Form setValueForm={setRecipes}>

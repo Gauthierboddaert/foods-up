@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "../../image/components/Image";
 import Category from "../type/Category";
 
@@ -6,9 +7,16 @@ interface CardCategoryFilterProps {
 }
 
 const CardCategoryFilter = ({ category }: CardCategoryFilterProps) => {
+
+  const [borderColor, setBorderColor] = useState<string>("border-grey-100")
+
+  const onClickInput = () => {
+    borderColor === 'border-grey-100' ? setBorderColor("border-foods-orange") : setBorderColor('border-grey-100')
+  }
+
   return (
-    <div className="w-[200px] flex mt-2 flex-col items-center">
-      <div className="flex w-44 rounded-lg hover:cursor-pointer items-center border border-grey-100">
+    <div onClick={() => onClickInput()} className="w-[200px] flex mt-2 flex-col items-center">
+      <div className={`flex w-44 rounded-lg hover:cursor-pointer items-center border ${borderColor}`}>
         <Image
           src={category.file[0]}
           alt={category.name}
