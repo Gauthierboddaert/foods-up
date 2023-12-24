@@ -17,6 +17,8 @@ const Layout = () => {
 
   const user = useSelector((state: RootState) => state.user);
 
+  console.log(user?.username);
+
   return (
     <>
       {/* RESPONSIVE MAX 768PX */}
@@ -46,7 +48,9 @@ const Layout = () => {
         {isConnected(user) ? (
           <Link to="/profil">
             <AccountIcon
-              color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
+              color={`${
+                isLocatedTo("/profil/" + user?.username) ? "#f46d12" : "black"
+              }`}
               className=" text-xl cursor-pointer"
             />
           </Link>
@@ -111,19 +115,23 @@ const Layout = () => {
             </Link>
 
             {isConnected(user) ? (
-              <Link to="/profil">
+              <Link to={`/profil/${user?.username}`}>
                 <div
                   className={` hover:bg-grey-hover w-max px-2 p-2 ml-8 rounded-md flex cursor-pointer ${
                     isLocatedTo("/profil") ? "active" : ""
                   }`}
                 >
                   <AccountIcon
-                    color={`${isLocatedTo("/profil") ? "#f46d12" : "black"}`}
+                    color={`${
+                      isLocatedTo("/profil/" + user?.username)
+                        ? "#f46d12"
+                        : "black"
+                    }`}
                     className=" text-xl cursor-pointer"
                   />
                   <p
                     className={`max-lg:hidden ml-3 ${
-                      isLocatedTo("/profil")
+                      isLocatedTo("/profil/" + user?.username)
                         ? "text-foods-orange font-bold"
                         : "black"
                     }`}
