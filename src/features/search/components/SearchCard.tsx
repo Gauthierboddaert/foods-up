@@ -8,6 +8,7 @@ const SearchCard = () => {
       <SearchBar
         placeHolder="Rechercher une recette ..."
         className="mt-12"
+        nameInput="name"
       />
       <DialogSearch
         button={<FilterIcon className="w-[20px] h-[20px] fill-current" />}

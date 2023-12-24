@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 
 interface CardFilterTypeProps {
   children: React.ReactNode;
-  placeHolder?: string;
+  placeHolder: string;
   title: string;
   className?: string;
+  nameInput?: string;
 }
 
 const CardFilterType = ({
@@ -15,6 +16,7 @@ const CardFilterType = ({
   placeHolder,
   title,
   className,
+  nameInput,
 }: CardFilterTypeProps) => {
   const [isFoldUp, setIsFoldUp] = useState<boolean>(false);
 
@@ -29,7 +31,7 @@ const CardFilterType = ({
       </FoldActionButton>
 
       <motion.div className={`${isFoldUp ? "block" : "hidden"}`}>
-        <SearchBar placeHolder={placeHolder} className="my-4" />
+        <SearchBar nameInput={nameInput} placeHolder={placeHolder} className="my-4" />
         <div className="w-full flex flex-wrap justify-center max-h-[180px] overflow-y-scroll">
           {children}
         </div>

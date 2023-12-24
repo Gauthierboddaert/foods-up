@@ -7,7 +7,7 @@ interface InputProps {
   type?: string;
 }
 
-const Input = ({ placeHolder, className, type = "text", name }: InputProps) => {
+const Input = ({ placeHolder, className, type = 'text', name }: InputProps) => {
   const { register } = useFormContext();
 
   return (
