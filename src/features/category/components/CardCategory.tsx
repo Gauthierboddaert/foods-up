@@ -10,19 +10,17 @@ const CardCategory = ({ category }: CategoryProps) => {
 
   return (
     <Link to={`/category/${category.name}`}>
-      <div
-        className="hover:cursor-pointer flex ml-4 rounded-lg border-[0.5px] border-[#d5d5d5]"
-      >
+      <div className="hover:cursor-pointer flex ml-4 rounded-lg border-[0.5px] border-[#d5d5d5]">
         <div className="w-14 h-max">
           {category.file.length !== 0 ? (
             <img
-              className="rounded-l-lg min-h-[40px]"
+              className="rounded-l-lg min-h-[40px] max-h-[40px] min-w-[54px] max-w-[54px] "
               src={category.file[0].imageName}
               alt=""
             />
           ) : (
             <img
-              className="rounded-l-lg min-h-[40px]"
+              className="rounded-l-lg min-h-[40px] max-h-[40px] min-w-[54px] max-w-[54px]"
               src={defaultImage}
               alt=""
             />

@@ -4,6 +4,7 @@ import NotFoundResource from "../../not-found/components/NotFoundResource";
 import defaultImage from "../../../../public/assets/defaultImage.jpg";
 import BackButton from "../../button/components/BackButton";
 import { motion } from "framer-motion";
+import CardSearchList from "../../search/components/CardSearchList";
 
 const CardDetailCategory = () => {
   const { name } = useParams();
@@ -44,6 +45,7 @@ const CardDetailCategory = () => {
           <hr className="border-1 border-solid border-foods-orange w-3/4 my-4" />
         </div>
       </div>
+      <CardSearchList placeholder="Rechercher une recette" type="category" categoryName={name} />
       {/* //todo infinite scroll for each recipe content current category */}
     </motion.div>
   );

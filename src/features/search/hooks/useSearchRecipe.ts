@@ -1,26 +1,24 @@
 import { useQuery } from "react-query";
-import getSearchRecipe from "../api/getSearchRecipe";
 import { IFormRecipeSearch } from "../../Form/type/FormType";
 import { useEffect, useState } from "react";
 import { RecipeId } from "../../recipe/type/Recipe";
+import search from "../api/search";
 
+const useSearch = (form: IFormRecipeSearch, type: string) => {
+  const [resultIds, setResultIds] = useState<RecipeId[]>();
 
-const useSearchRecipe = (form: IFormRecipeSearch) => {
-  const [recipeIds, setRecipeIds] = useState<RecipeId[]>();
-
-  const { data, isLoading } = useQuery({
-    queryKey: ["searchRecipe", form],
-    queryFn: () => getSearchRecipe(form),
+  const { data, isLoading, isFetched } = useQuery({
+    queryKey: ["search", form, type],
+    queryFn: () => search(form, type),
   });
 
   useEffect(() => {
     if (data !== undefined) {
-      setRecipeIds(data);
+      setResultIds(data);
     }
   }, [data, form]);
 
-
-  return { recipeIds, isLoading };
+  return { resultIds, isLoading, isFetched };
 };
 
-export default useSearchRecipe;
+export default useSearch;

@@ -4,7 +4,11 @@ import DialogSearch from "../../Dialog/Components/DialogSearch";
 import { useState } from "react";
 import CardFilterModal from "./CardFilterModal";
 
-const SearchCard = () => {
+interface SearchCardProps {
+  placeholder: string;
+}
+
+const SearchCard = ({ placeholder }: SearchCardProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleModalStatus = () => {
@@ -17,11 +21,7 @@ const SearchCard = () => {
 
   return (
     <div className="w-full">
-      <SearchBar
-        placeHolder="Rechercher une recette ..."
-        className="mt-12"
-        nameInput="name"
-      />
+      <SearchBar placeHolder={placeholder} className="mt-12" nameInput="name" />
       <DialogSearch
         children={
           <CardFilterModal
