@@ -27,7 +27,7 @@ const CardDetailCategory = () => {
       transition={{ duration: 0.1 }}
       className="w-full"
     >
-      <BackButton className="w-6 h-6 ml-4 mt-4" />
+      <BackButton className="w-64 h-6 ml-4 mt-4" />
       <div className="flex items-center mt-12 gap-6 flex-col">
         {data?.file.length !== 0 ? (
           <img

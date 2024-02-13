@@ -6,6 +6,7 @@ import Form from "../../Form/components/Form";
 import CardSearchResultLoader from "./CardSearchResultLoader";
 import { IFormType } from "../../Form/type/FormTypeRecipe";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface CardSearchListProps {
   placeholder: string;
@@ -21,6 +22,10 @@ const CardSearchList = ({
   const [result, setResult] = useState<IFormType>({
     name: "",
     categoryName: categoryName,
+  });
+
+  const { ref } = useInView({
+    rootMargin: "3000px",
   });
 
   const { isLoading, resultIds, isFetched } = useSearch(result, type);
@@ -40,8 +45,12 @@ const CardSearchList = ({
             ) : (
               <>
                 {resultIds?.map((recipe) => (
-                  <CardSearchResult key={recipe.id} recipeId={recipe} />
+                  <div>
+                    <CardSearchResult key={recipe.id} recipeId={recipe} />
+                    <div ref={ref}></div>
+                  </div>
                 ))}
+                
                 {isFetched && resultIds?.length === 0 && (
                   <div className="w-full flex justify-center">
                     <p className="text-2xl text-foods-orange">

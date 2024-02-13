@@ -13,8 +13,6 @@ const Login: FunctionComponent = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   
-  // const user = useSelector((state: RootState) => state.user);
-
   const dispatch = useDispatch();
 
   const onPressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -36,7 +34,7 @@ const Login: FunctionComponent = () => {
   }
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center h-screen">
       <form
         className="rounded-md z-0  item-login flex items-center flex-col border border-black max-md:border-none"
         action=""
@@ -74,9 +72,9 @@ const Login: FunctionComponent = () => {
           {isLoading ? "Loading ..." : "Se connecter"}
         </button>
         <div className="flex pb-6 w-full h-3 justify-center items-center">
-          <div className="trait"></div>
+          <div className="w-[80px] h-[1px] bg-nauticalGrey ml-2 mr-2"></div>
           <p className="where">ou</p>
-          <div className="trait"></div>
+          <div className="w-[80px] h-[1px] bg-nauticalGrey ml-2 mr-2"></div>
         </div>
         <button
           type="button"

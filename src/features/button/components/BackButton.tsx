@@ -5,11 +5,11 @@ interface BackButtonProps {
   className?: string;
 }
 
-const BackButton = ({className}: BackButtonProps) => {
+const BackButton = ({ className }: BackButtonProps) => {
   return (
     <Link to={`/`}>
-      <div  className={`flex gap-2 ml-2 mt-4 hover:cursor-pointer ${className}`}>
-        <BackWardIcon className="w-12 h-12" />
+      <div className={`flex gap-2 ml-2 mt-4 hover:cursor-pointer ${className}`}>
+        <BackWardIcon />
         <p className="text-base">Retour</p>
       </div>
     </Link>

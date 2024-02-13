@@ -1,11 +1,11 @@
 import moi from "../../../../public/assets/moi.jpg";
 import defaultRecipe from "../../../../public/assets/ham.jpeg";
 import { RecipeId } from "../type/Recipe";
-import HeartIcon from "../../Icon/hearIcon";
-import EyeIcon from "../../Icon/EyeIcon";
 import useRecipe from "../hooks/useRecipe";
 import CardRecipeLoader from "./CardRecipeLoader";
 import { useInView } from "react-intersection-observer";
+import LikeCard from "../../Like/components/LikeCard";
+import ShowCard from "../../show/components/ShowCard";
 
 interface RecipeIdProps {
   recipeId: RecipeId;
@@ -42,12 +42,12 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
           <p className="text-xs mx-1">1h</p>
         </div>
         <div className={`img-recipe bg-transparent relative`}>
-          <h1
+          {/* <h1
             id="show"
             className={`p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center`}
           >
             voir plus
-          </h1>
+          </h1> */}
           {data?.file.length !== 0 ? (
             <img
               className={`inset-0 w-full object-cover mx-auto max-h-[400px]`}
@@ -64,8 +64,8 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
         </div>
         <div>
           <div className="flex px-2 py-2 gap-2">
-            <HeartIcon width={20} height={20} color="black" />
-            <EyeIcon width={20} height={20} color="black" />
+            <LikeCard />
+            <ShowCard />
           </div>
           <div className="flex flex-col px-2">
             <p className=" font-bold text-sm">Gauthier Boddaert</p>
