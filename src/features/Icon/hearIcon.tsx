@@ -18,6 +18,7 @@ const HeartIcon: FunctionComponent<Props> = ({
 }) => {
   const [hover, setHover] = useState<string>(color);
 
+  console.log(hover);
   return (
     <motion.svg
       onHoverStart={() => setHover('gray')}

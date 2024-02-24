@@ -3,7 +3,6 @@ import {
   useDismiss,
   useRole,
   useInteractions,
-  useId,
   useFloating,
   FloatingOverlay,
   FloatingFocusManager,
