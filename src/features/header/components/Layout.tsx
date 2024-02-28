@@ -31,7 +31,7 @@ const Layout = () => {
 
       <div
         onClick={() => redirect("/profil")}
-        className="fixed bg-white w-full border-t-2 h-12 bottom-0 flex items-center justify-around md:hidden z-20]"
+        className="fixed bg-white w-full border-t-2 h-12 bottom-0 flex items-center justify-around md:hidden z-20"
       >
         <Link to="/">
           <HomeIcon
