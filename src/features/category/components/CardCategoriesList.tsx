@@ -12,8 +12,8 @@ const CardCategoriesList = () => {
 
   return (
     <>
-      <div className="w-full h-14 flex justify-center mb-4">
-        <div className="w-[400px] h-1 flex items-center overflow-x-scroll">
+      <div className="w-full h-12 flex justify-center mb-4">
+        <div className="w-[400px] h-12 flex items-center overflow-x-scroll">
           {data.map((category: Category, index: number) => (
             <CardCategory key={index} category={category} />
           ))}
