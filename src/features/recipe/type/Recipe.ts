@@ -10,7 +10,7 @@ interface Recipe {
     users: [],
     categories: Category[],
     file: File[],
-    like: Like[]
+    likes: Like[]
     ingredients: Ingredient[],
     creationTime: number,
     recipeStep: RecipeStep[],

@@ -17,7 +17,7 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
   });
 
   const { data, isLoading } = useRecipe(recipeId.id, inView);
-
+  
   if (!data || isLoading) {
     return (
       <div ref={ref}>
@@ -64,7 +64,7 @@ const CardRecipe = ({ recipeId }: RecipeIdProps) => {
         </div>
         <div>
           <div className="flex px-2 py-2 gap-2">
-            <LikeCard />
+            <LikeCard liked={data.likes[0].isLike} />
             <ShowCard />
           </div>
           <div className="flex flex-col px-2">

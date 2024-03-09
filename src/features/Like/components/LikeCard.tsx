@@ -2,8 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import HeartIcon from "../../Icon/hearIcon";
 
-const LikeCard = () => {
-  const [isLiked, setIsLiked] = useState(false);
+interface LikeCardProps {
+  liked: boolean;
+}
+
+const LikeCard = ({ liked }): LikeCardProps => {
+  const [isLiked, setIsLiked] = useState(liked);
 
   return (
     <motion.div
@@ -12,7 +16,7 @@ const LikeCard = () => {
         isLiked ? setIsLiked(false) : setIsLiked(true);
       }}
     >
-      <HeartIcon width={20} height={20} fill={`${isLiked ? "red" : "black"}`} />
+      <HeartIcon isLiked={isLiked} fill={`${isLiked ? "red" : "white"}`} />
     </motion.div>
   );
 };

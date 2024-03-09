@@ -24,8 +24,8 @@ const EyeIcon: FunctionComponent<Props> = ({
       onHoverEnd={() => setHover(borderColor)}
       whileHover={{ scale: 1.1 }}
       className={className}
-      width={width}
-      height={height}
+      width={width * 2}
+      height={height * 2}
       viewBox="0 0 14 11"
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"

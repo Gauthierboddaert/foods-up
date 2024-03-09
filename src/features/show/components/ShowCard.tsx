@@ -7,7 +7,7 @@ const ShowCard = () => {
       className="hover:cursor-pointer"
       onClick={() => console.log("liked")}
     >
-      <EyeIcon width={20} height={20} color="black" />
+      <EyeIcon color="black" />
     </motion.div>
   );
 };
