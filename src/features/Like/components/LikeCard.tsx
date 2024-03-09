@@ -6,7 +6,7 @@ interface LikeCardProps {
   liked: boolean;
 }
 
-const LikeCard = ({ liked }): LikeCardProps => {
+const LikeCard = ({ liked}: LikeCardProps) => {
   const [isLiked, setIsLiked] = useState(liked);
 
   return (
@@ -22,3 +22,5 @@ const LikeCard = ({ liked }): LikeCardProps => {
 };
 
 export default LikeCard;
+
+
